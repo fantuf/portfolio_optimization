@@ -6,6 +6,12 @@ import streamlit as st
 # Fetch data from the saved CSV file
 data = pd.read_csv("portfolio_data.csv", index_col="Date", parse_dates=True)
 
+# text input for weights and symbols
+symbols = st.text_input("Enter stock tickers (comma-separated):", "AAPL, MSFT, TSLA")
+symbols_list = [s.strip() for s in symbols.split(",")]
+weights = st.text_input("Enter portfolio weights (comma-separated):", "0.4, 0.3, 0.3")
+weights_list = [float(w) for w in weights.split(",")]
+
 # Normalize prices and calculate daily portfolio value
 normalized_data = data / data.iloc[0]
 portfolio_values = (normalized_data * weights_list).sum(axis=1)
