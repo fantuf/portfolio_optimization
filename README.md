@@ -1,88 +1,60 @@
-# Portfolio Optimization 📈
+# Portfolio Optimization & Interactive Dashboard 📈
 
-Questo repository contiene un set di strumenti in Python per l'analisi finanziaria e l'ottimizzazione di portafogli azionari. Il progetto utilizza modelli matematici per calcolare l'allocazione ottimale degli asset, confrontando diverse strategie basate sul profilo rischio-rendimento.
+Questo progetto combina algoritmi di **Portfolio Management** con un'interfaccia utente interattiva. Permette di analizzare le performance storiche di un portafoglio azionario, calcolare metriche di rischio e visualizzare l'allocazione degli asset in tempo reale.
 
-## 🚀 Funzionalità
+## 🚀 Caratteristiche principali
 
-* **Analisi Statistica**: Calcolo dei rendimenti attesi, della volatilità (deviazione standard) e della matrice di covarianza degli asset.
-* **Strategie di Ottimizzazione**:
-* **Maximum Sharpe Ratio**: Identifica il portafoglio che massimizza il rendimento per unità di rischio.
-* **Minimum Volatility**: Trova la combinazione di asset con il minor rischio possibile.
-
-
-* **Visualizzazione**:
-* Generazione della **Frontiera Efficiente**.
-* Plotting dei portafogli ottimali rispetto a una simulazione Monte Carlo.
-
-
-* **Integrazione Dati**: Supporto per il download automatico dei dati storici tramite l'API di Yahoo Finance (`yfinance`).
+* **Dashboard Interattiva**: Sviluppata con **Streamlit** per una gestione dinamica dei ticker e dei pesi del portafoglio.
+* **Visualizzazione Dati**: Grafici interattivi della performance storica e della composizione del portafoglio tramite **Plotly**.
+* **Metriche di Rischio**: Calcolo automatico della **Volatilità Annualizzata** e dello **Sharpe Ratio**.
+* **Analisi Multi-Asset**: Supporto per qualsiasi ticker disponibile su Yahoo Finance.
 
 ## 🛠️ Requisiti
 
-Il progetto richiede Python 3.x e le seguenti librerie:
+Il progetto utilizza le seguenti librerie Python:
 
-* `numpy`
-* `pandas`
-* `matplotlib`
-* `scipy`
-* `yfinance`
+* `pandas` - Manipolazione dati
+* `yfinance` - Download dati finanziari
+* `plotly` - Grafici interattivi
+* `streamlit` - Web App framework
 
-Puoi installarle tutte tramite pip:
+Installa tutto con:
 
 ```bash
-pip install numpy pandas matplotlib scipy yfinance
+pip install pandas yfinance plotly streamlit
 
 ```
 
-## 💻 Come utilizzare il progetto
+## 💻 Come avviare la Dashboard
 
-1. **Clona il repository**:
+Per lanciare l'interfaccia interattiva, esegui il seguente comando nel terminale dalla cartella del progetto:
+
 ```bash
-git clone https://github.com/fantuf/portfolio_optimization.git
-cd portfolio_optimization
+streamlit run interactive.py
 
 ```
 
+## 📊 Utilizzo dell'App
 
-2. **Configurazione**:
-All'interno dello script principale (o del notebook), definisci i ticker degli asset che desideri analizzare:
-```python
-tickers = ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
+Una volta avviata l'app nel browser, potrai:
 
-```
-
-
-3. **Esecuzione**:
-Esegui lo script per visualizzare i risultati dell'ottimizzazione e i grafici della frontiera efficiente:
-```bash
-python main.py
-
-```
+1. **Inserire i Ticker**: Digita i simboli azionari separati da virgola (es. `AAPL, MSFT, TSLA`).
+2. **Definire i Pesi**: Inserisci la quota di capitale per ogni asset (es. `0.4, 0.3, 0.3`).
+3. **Analizzare i Risultati**:
+* Il grafico **Portfolio Performance** mostrerà l'andamento del valore nel tempo.
+* Il **Pie Chart** mostrerà visivamente la distribuzione del capitale.
+* La sezione **Risk Metrics** fornirà un feedback immediato sull'efficienza del portafoglio.
 
 
 
-## 📊 Concetti Implementati
+## 📁 Struttura della Repository
 
-### Markowitz Efficient Frontier
-
-Il nucleo del progetto si basa sulla **Modern Portfolio Theory (MPT)**. La frontiera efficiente rappresenta l'insieme dei portafogli che offrono il massimo rendimento atteso per ogni livello di rischio.
-
-### Sharpe Ratio
-
-Viene calcolato per misurare l'efficienza di un portafoglio:
-
-
-
-*(Dove  è il rendimento del portafoglio,  il tasso risk-free e  la volatilità).*
-
-## 📂 Struttura della Repo
-
-* `main.py` / `optimization.py`: Logica principale per il calcolo dei pesi e l'ottimizzazione.
-* `requirements.txt`: Elenco delle dipendenze.
-* `Notebooks/`: Eventuali esempi interattivi (.ipynb).
+* `interactive.py`: Il cuore dell'applicazione Streamlit.
+* `portfolio_data.csv`: File di dati storici utilizzato per l'analisi (assicurati che sia presente o generato dagli script di download).
+* `requirements.txt`: Elenco delle dipendenze per facilitare l'installazione.
 
 ---
 
-**Autore:** [fantuf](https://www.google.com/search?q=https://github.com/fantuf)
+**Sviluppato da:** [fantuf](https://www.google.com/search?q=https://github.com/fantuf)
 
 **Licenza:** MIT
